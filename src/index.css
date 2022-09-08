@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+*, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    background-color: #263238;
+}
+
+.navbar{
+    background-color: #151c20;
+    color: #ee5350;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.bottom-line-1{
+    width: 100%;
+    height: 4px;
+    background-color: #b73f3d;
+}
+
+.bottom-line-2{
+    width: 100%;
+    height: 2px;
+    background-color: #ee5350;
+}
+
+.scoreboard-container{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+}
+
+.sub-score-cont{
+    height: 40px;
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151c20;
+    border-radius: 20px;
+    -webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+}
+
+.current-score-container{
+    color: #ffca1c;
+}
+
+.max-score-container{
+    color: #ee5350;
+    margin-right: 20px;
+}
+
+.game-container{
+    width: 100%;
+    min-height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-container{
+    min-height: calc(100vh - 250px);
+    width: calc(100vh - 250px);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    padding-left: 10px;
+}
+
+@media screen and (max-width: 750px){
+    .card-container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+    
+@media screen and (max-width: 500px){
+    .card-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.single-card-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    height: 140px;
+    width: 140px;
+    border-radius: 20px;
+    background-color: #ee5350;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease-in-out;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #263238;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.card:hover{
+    border: 0;
+    background-color: #b73f3d;
+    -webkit-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 3px 3px 0px 0px rgba(0,0,0,0.75);
+}
+
+.poke-img{
+    width: 110px;
+    height: 110px;
+}
+
+.poke-name{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+footer {
+    height: 40px;
+    margin-top: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #151c20;
+    color: white;
+}
+
+.footer-link{
+    color: white;
+}
+
+.fa-brands {
+    margin-left: 5px;
+}
+
+.fa-brands:hover {
+    color: #ee5350;
+}
