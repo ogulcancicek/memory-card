@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import GameContainer from "./components/GameContainer";
 import Footer from "./components/Footer";
 import Scoreboard from "./components/Scoreboard/Scoreboard";
+import Storage from './Storage';
 
 function App() {
 
@@ -14,10 +15,11 @@ function App() {
 
   useEffect(() => {
      const loadPokeCards = async () => {
-      setPokemons(await fetchPokemons(MAX_POKEMON_AMOUNT));
+      setPokemons(shuffleArray(await fetchPokemons(MAX_POKEMON_AMOUNT)));
      }
 
      loadPokeCards();
+     setTopScore(Storage.getTopScore());
   }, [])
 
   const fetchPokemons = async (MAX_POKEMON_AMOUNT) => {
@@ -37,14 +39,35 @@ function App() {
   const handleClick = (event) => {
     const pokeName = event
                       .target
-                      .nextSibling
-                      .innerHTML;
+                      .parentNode
+                      .querySelector('.poke-name')
+                      .textContent;
     
     playRound(pokeName.toLowerCase());
   }
 
   const playRound = (pokeName) => {
-    console.log(pokeName);
+    if (clickedPokeCards.includes(pokeName)) {
+      setCurrentScore(0);
+      setClickedPokeCards([]);
+    } else {
+      setClickedPokeCards([...clickedPokeCards, pokeName]);
+      setCurrentScore(currentScore + 1);
+      
+      if (currentScore + 1 > topScore) {
+        setTopScore(currentScore + 1);
+        Storage.setTopScore(currentScore + 1);
+      } else {
+        setTopScore(topScore);
+        Storage.setTopScore(topScore);
+      }
+
+    }
+    setPokemons(shuffleArray(pokemons));
+  }
+
+  const shuffleArray = (arr) => {
+    return arr.sort( () => Math.random() - 0.5);
   }
 
   return (
