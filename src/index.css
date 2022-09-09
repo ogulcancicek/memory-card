@@ -75,7 +75,6 @@ body{
 
 .card-container{
     min-height: calc(100vh - 250px);
-    width: calc(100vh - 250px);
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
@@ -84,13 +83,45 @@ body{
 
 @media screen and (max-width: 750px){
     .card-container{
+        margin-top: 10px;
         grid-template-columns: repeat(3, 1fr);
     }
 }
     
 @media screen and (max-width: 500px){
+    .scoreboard-container{
+        margin-top: 5px;
+        justify-content: center;
+    }
+
+    .logo{
+        font-size: 1.5rem;
+    }
     .card-container{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+    }
+
+    .card{
+        position: relative;
+        height: 100px !important;
+        width: 100px !important;
+    }
+
+    .poke-img{
+        width: 80px !important;
+        height: 80px !important;
+        margin-bottom: 10px;
+    }
+
+    .poke-name{
+        position: absolute;
+        bottom: 0;
+        font-size: 0.8rem !important;
+    }
+
+    footer > p{
+        font-size: 0.8rem !important;
     }
 }
 .single-card-container{
